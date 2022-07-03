@@ -38,6 +38,7 @@ public class OrderController {
         Order order =
                 orderService.createOrder(mapper.orderPostDtoToOrder(orderPostDto));
         List<Coffee> coffees = coffeeService.findOrderedCoffees(order);
+
         return new ResponseEntity<>(mapper.orderToOrderResponseDto(order, coffees),
                 HttpStatus.CREATED);
     }
